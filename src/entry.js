@@ -20,3 +20,17 @@ Entry.prototype.consonantCounter = function() {
   }
   return this.body.match(/[b-df-hj-np-tv-z]/gi).length;
 };
+//TODO: Fix this 
+Entry.prototype.getTeaser = function() {
+  if (this.body == "") {
+    return 0;
+  }
+  let temp = this.body.split('.');
+  if (temp.length < 8) {
+    let a = temp[0].split(' ');
+    return a.join(' ') + '.';
+  } else {
+    let b = temp[0].split(' ');
+    return b.slice(0, 8).join(' ') + '...';
+  }
+};
